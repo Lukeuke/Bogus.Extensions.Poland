@@ -4,8 +4,8 @@
 
 - using Bogus.Extensions.Poland;
   - Bogus.Person.Pesel() - Polish Personal Identity Number (gender and date of birth are taken from Person)
-  - Bogus.Customer.Nip() - Polish Tax Identity Number
-  - Bogus.Customer.Regon(RegonType) - Polish National Business Registry Number
+  - Bogus.Company.Nip() - Polish Tax Identity Number
+  - Bogus.Company.Regon(RegonType) - Polish National Business Registry Number
 
 
 ## Description
@@ -33,8 +33,8 @@ dotnet add package Sulmar.Bogus.Extensions.Poland
                 .RuleFor(p => p.FirstName, f => f.Person.FirstName)
                 .RuleFor(p => p.BirthDate, f=> f.Person.DateOfBirth)
                 .RuleFor(p => p.Pesel, f=> f.Person.Pesel())
-                .RuleFor(p => p.Pesel, f=> f.Customer.Nip())
-                .RuleFor(p => p.Pesel, f=> f.Customer.Regon(RegonType.Regon9));
+                .RuleFor(p => p.Nip, f=> f.Company.Nip())
+                .RuleFor(p => p.Regon, f=> f.Company.Regon(RegonType.Regon9));
 
   var customer = faker.Generate();
 ~~~ 
